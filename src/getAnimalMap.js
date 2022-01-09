@@ -18,10 +18,9 @@ function getNames(species, sex, sorted) {
 }
 
 function getAnimalMap({ includeNames, sex, sorted } = {}) {
-  const animalMap = data.species.reduce((acc, species) => {
-    acc[species.location] = [];
-    return acc;
-  }, {});
+  const animalMap = data.species.reduce((acc, species) => (
+    { ...acc, [species.location]: [] }
+  ), {});
 
   if (!includeNames) {
     data.species.forEach((species) => animalMap[species.location].push(species.name));

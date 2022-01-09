@@ -2,10 +2,9 @@ const data = require('../data/zoo_data');
 
 function countAnimals(animal) {
   if (!animal) {
-    return data.species.reduce((acc, species) => {
-      acc[species.name] = species.residents.length;
-      return acc;
-    }, {});
+    return data.species.reduce((acc, species) => (
+      { ...acc, [species.name]: species.residents.length }
+    ), {});
   }
 
   const animalToCount = data.species.find((species) => species.name === animal.specie);
