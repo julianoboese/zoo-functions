@@ -1,4 +1,4 @@
-const data = require('../data/zoo_data');
+const { prices } = require('../data/zoo_data');
 
 function countEntrants(entrants) {
   const totalEntrants = { child: 0, adult: 0, senior: 0 };
@@ -19,7 +19,7 @@ function calculateEntry(entrants) {
     return 0;
   }
   const { child, adult, senior } = countEntrants(entrants);
-  return child * data.prices.child + adult * data.prices.adult + senior * data.prices.senior;
+  return child * prices.child + adult * prices.adult + senior * prices.senior;
 }
 
 module.exports = { calculateEntry, countEntrants };

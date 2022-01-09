@@ -1,17 +1,17 @@
-const data = require('../data/zoo_data');
+const { species, hours } = require('../data/zoo_data');
 
 function createCompleteSchedule() {
   const schedule = {};
 
-  Object.keys(data.hours).forEach((weekday) => {
+  Object.keys(hours).forEach((weekday) => {
     const animals = [];
-    data.species.forEach((species) => {
-      if (species.availability.includes(weekday)) {
-        animals.push(species.name);
+    species.forEach((spec) => {
+      if (spec.availability.includes(weekday)) {
+        animals.push(spec.name);
       }
     });
     schedule[weekday] = {
-      officeHour: `Open from ${data.hours[weekday].open}am until ${data.hours[weekday].close}pm`,
+      officeHour: `Open from ${hours[weekday].open}am until ${hours[weekday].close}pm`,
       exhibition: animals,
     };
   });
@@ -21,8 +21,8 @@ function createCompleteSchedule() {
 }
 
 function getSchedule(scheduleTarget) {
-  if (data.species.some((species) => species.name === scheduleTarget)) {
-    return data.species.find((species) => species.name === scheduleTarget).availability;
+  if (species.some((spec) => spec.name === scheduleTarget)) {
+    return species.find((spec) => spec.name === scheduleTarget).availability;
   }
 
   const schedule = createCompleteSchedule();

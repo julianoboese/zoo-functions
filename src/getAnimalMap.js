@@ -1,9 +1,9 @@
-const data = require('../data/zoo_data');
+const { species } = require('../data/zoo_data');
 
-function getNames(species, sex, sorted) {
-  const names = sex ? species.residents.filter((resident) => resident.sex === sex)
+function getNames(residents, sex, sorted) {
+  const names = sex ? residents.filter((resident) => resident.sex === sex)
     .map((resident) => resident.name)
-    : species.residents.map((resident) => resident.name);
+    : residents.map((resident) => resident.name);
 
   if (sorted) {
     names.sort();
@@ -13,10 +13,10 @@ function getNames(species, sex, sorted) {
 }
 
 function getAnimalMap({ includeNames, sex, sorted } = {}) {
-  return data.species.reduce((acc, species) => (
+  return species.reduce((acc, { name, location, residents }) => (
     { ...acc,
-      [species.location]: !includeNames ? [...acc[species.location] || '', species.name]
-        : [...acc[species.location] || '', { [species.name]: getNames(species, sex, sorted) }] }
+      [location]: !includeNames ? [...acc[location] || '', name]
+        : [...acc[location] || '', { [name]: getNames(residents, sex, sorted) }] }
   ), {});
 }
 
