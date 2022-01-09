@@ -1,24 +1,15 @@
-const data = require('../data/zoo_data');
+const { species, employees } = require('../data/zoo_data');
 
 function createCompleteCoverage() {
-  return data.employees.map((employee) => {
-    const animals = data.species.filter((species) => employee.responsibleFor.includes(species.id));
+  return employees.map(({ id: empId, firstName, lastName, responsibleFor }) => {
+    const animals = species.filter(({ id: specId }) => responsibleFor.includes(specId));
     return {
-      id: employee.id,
-      fullName: `${employee.firstName} ${employee.lastName}`,
-      species: animals.map((species) => species.name),
-      locations: animals.map((species) => species.location),
+      id: empId,
+      fullName: `${firstName} ${lastName}`,
+      species: animals.map(({ name }) => name),
+      locations: animals.map(({ location }) => location),
     };
   });
-}
-
-function getPerson(id, name) {
-  if (id) {
-    return createCompleteCoverage().find((employee) => employee.id === id);
-  }
-  if (name) {
-    return createCompleteCoverage().find((employee) => employee.fullName.split(' ').includes(name));
-  }
 }
 
 function getEmployeesCoverage({ id, name } = {}) {
@@ -26,7 +17,8 @@ function getEmployeesCoverage({ id, name } = {}) {
     return createCompleteCoverage();
   }
 
-  const person = getPerson(id, name);
+  const person = createCompleteCoverage().find(({ id: pId, fullName }) => pId === id
+  || fullName.includes(name));
 
   try {
     if (person) {
