@@ -14,9 +14,11 @@ function getNames(residents, sex, sorted) {
 
 function getAnimalMap({ includeNames, sex, sorted } = {}) {
   return species.reduce((acc, { name, location, residents }) => (
-    { ...acc,
+    {
+      ...acc,
       [location]: !includeNames ? [...acc[location] || '', name]
-        : [...acc[location] || '', { [name]: getNames(residents, sex, sorted) }] }
+        : [...acc[location] || '', { [name]: getNames(residents, sex, sorted) }],
+    }
   ), {});
 }
 

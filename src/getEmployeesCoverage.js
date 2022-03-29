@@ -1,12 +1,16 @@
 const { species, employees } = require('../data/zoo_data');
 
 function getEmployeesCoverage({ id, name } = {}) {
-  const people = employees.map(({ id: empId, firstName, lastName, responsibleFor }) => {
+  const people = employees.map(({
+    id: empId, firstName, lastName, responsibleFor,
+  }) => {
     const animals = species.filter(({ id: specId }) => responsibleFor.includes(specId));
-    return { id: empId,
+    return {
+      id: empId,
       fullName: `${firstName} ${lastName}`,
       species: animals.map(({ name: specName }) => specName),
-      locations: animals.map(({ location }) => location) };
+      locations: animals.map(({ location }) => location),
+    };
   });
 
   if (!id && !name) return people;

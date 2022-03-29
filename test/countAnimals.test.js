@@ -3,15 +3,15 @@ const countAnimals = require('../src/countAnimals');
 describe('5 - Crie uma função que realiza a contagem dos animais de cada espécie', () => {
   it('sem parâmetros, retorna as espécies e sua quantidade', () => {
     const expected = {
-      'lions': 4,
-      'tigers': 2,
-      'bears': 3,
-      'penguins': 4,
-      'otters': 4,
-      'frogs': 2,
-      'snakes': 2,
-      'elephants': 4,
-      'giraffes': 6,
+      lions: 4,
+      tigers: 2,
+      bears: 3,
+      penguins: 4,
+      otters: 4,
+      frogs: 2,
+      snakes: 2,
+      elephants: 4,
+      giraffes: 6,
     };
     const actual = countAnimals();
 

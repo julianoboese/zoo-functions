@@ -10,7 +10,7 @@ describe('1 - Crie uma função que busca as espécies de animais por id', () =>
   it('ao receber como parâmetro um único id, retorna um array com a espécie referente à esse id', () => {
     {
       const actual = getSpeciesByIds('0938aa23-f153-4937-9f88-4858b24d6bce');
-  
+
       const expected = [{
         id: '0938aa23-f153-4937-9f88-4858b24d6bce',
         name: 'lions',
@@ -24,12 +24,12 @@ describe('1 - Crie uma função que busca as espécies de animais por id', () =>
           { name: 'Dee', sex: 'female', age: 14 },
         ],
       }];
-  
+
       expect(actual).toEqual(expected);
     }
     {
       const actual = getSpeciesByIds('01422318-ca2d-46b8-b66c-3e9e188244ed');
-  
+
       const expected = [{
         id: '01422318-ca2d-46b8-b66c-3e9e188244ed',
         name: 'giraffes',
@@ -39,13 +39,13 @@ describe('1 - Crie uma função que busca as espécies de animais por id', () =>
         residents: [
           { name: 'Gracia', sex: 'female', age: 11 },
           { name: 'Antone', sex: 'male', age: 9 },
-          { name: 'Vicky',  sex: 'female', age: 12 },
+          { name: 'Vicky', sex: 'female', age: 12 },
           { name: 'Clay', sex: 'male', age: 4 },
           { name: 'Arron', sex: 'male', age: 7 },
           { name: 'Bernard', sex: 'male', age: 6 },
         ],
       }];
-  
+
       expect(actual).toEqual(expected);
     }
   });
