@@ -1,9 +1,9 @@
 # Zoo Functions
-Projeto da [Trybe](https://www.betrybe.com/) - Bloco 8 - Implementação de funções utilizando High Order Functions e outras features do Javascript ES6.
+Projeto da [Trybe](https://www.betrybe.com/) - Bloco 8 - Implementação de funções utilizando High Order Functions e outras features do JavaScript ES6.
 
 ## 💻 Projeto
 
-Implementação de funções utilizando High Order Functions e outras features do Javascript ES6 que simulam a gestão de um zoológico.
+Implementação de funções utilizando High Order Functions e outras features do JavaScript ES6 que simulam a gestão de um zoológico.
 
 <details>
   <summary><strong>🏆 Meu desempenho</strong></summary><br />
