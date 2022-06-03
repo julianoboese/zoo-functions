@@ -25,6 +25,18 @@ Implementação de funções utilizando High Order Functions e outras features d
 - Aprender a usar de forma conjunta as Higher Order Functions;
 - Interpretar testes unitários e produzir soluções que atendam a eles.
 
+## ⬇️ Instalando dependências
+
+```bash
+npm install
+``` 
+
+## 🧪 Executando os testes
+
+```bash
+npm test
+```
+
 ## 💬 Contatos
 
 <div align="center" style="display: inline_block">
